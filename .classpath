@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [1.8.0_05]"/>
+	<classpathentry kind="lib" path="lib/jar/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="lib/jar/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="lib/jar/ibxm.jar"/>
+	<classpathentry kind="lib" path="lib/jar/jinput.jar"/>
+	<classpathentry kind="lib" path="lib/jar/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="lib/jar/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="lib/jar/laf-plugin-7.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jar/laf-widget-7.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jar/log4j-api-2.0-beta9.jar"/>
+	<classpathentry kind="lib" path="lib/jar/lwjgl_test.jar"/>
+	<classpathentry kind="lib" path="lib/jar/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="lib/jar/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="lib/jar/lwjgl-debug.jar"/>
+	<classpathentry kind="lib" path="lib/jar/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SEPrototype/lib/native/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/jar/lzma.jar"/>
+	<classpathentry kind="lib" path="lib/jar/natives-linux.jar"/>
+	<classpathentry kind="lib" path="lib/jar/natives-mac.jar"/>
+	<classpathentry kind="lib" path="lib/jar/natives-windows.jar"/>
+	<classpathentry kind="lib" path="lib/jar/slick-util-src.zip"/>
+	<classpathentry kind="lib" path="lib/jar/slick-util.jar"/>
+	<classpathentry kind="lib" path="lib/jar/substance-7.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jar/trident-7.2.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
