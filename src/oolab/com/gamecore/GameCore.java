@@ -1,48 +1,51 @@
 package oolab.com.gamecore;
 
-import org.lwjgl.opengl.Display;
-
 /*
  * Contains the main game loop logic.
  */
 public class GameCore {
 	
 	Renderer2D renderer;
+	EventDispatcher dispatcher;
+	boolean isExit;
 	
 	public GameCore() {
-		renderer = new Renderer2D();
+        isExit = false;
+		try {
+            renderer = new Renderer2D();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		dispatcher = new EventDispatcher();
 	}
+
 	/*
 	 * Will block until exit game main body e.g. switch to login screen
 	 */
 	public void MainLoop () {
-		while(true)
+		while(!isExit)
 		{
-			if (Display.isVisible()) {
-				renderer.TickClear();
-				DispatchEvent();
-				// TODO: Invoke all GameTickNotifier
-				
-			}
-			Display.update();
+			renderer.TickClear();
+			dispatcher.HandleEvents();
+			dispatcher.HandleTickEvents();
+			dispatcher.HandleTicks();
+			renderer.Render();
 		}
-	}
-	
-	/*
-	 * Check any event and trigger event notifier for GameObjects change their Belief-Desire-Intention.  
-	 */
-	private void DispatchEvent()
-	{
-		// TODO: how to trigger all event in order
-	}
-	
-	public void AddGameObject(GameObject obj)
-	{
-		obj.Init();
 	}
 	
 	public Renderer2D getRenderer()
 	{
 		return renderer;
 	}
+	
+	public EventDispatcher getDispatcher()
+	{
+		return dispatcher;
+	}
+	
+	public void Exit()
+	{
+		isExit = true;
+	}
+	
 }

@@ -7,7 +7,11 @@ public interface GameObject {
 	/**
 	 * Before add to GameEngin
 	 */
-	public void Init();
+	public void Init(GameCore core);
 	
-	public void Render();
+	public void Render(Renderer2D renderer);
+	
+	public void TickHandler();
+	
+	public void NextTickHandler();
 }

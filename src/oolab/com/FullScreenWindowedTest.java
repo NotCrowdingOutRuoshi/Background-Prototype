@@ -39,7 +39,6 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.util.vector.Vector2f;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
@@ -112,6 +111,7 @@ public class FullScreenWindowedTest {
 	 */
 	private void mainLoop() {
 		while (!Keyboard.isKeyDown(Keyboard.KEY_ESCAPE) && !Display.isCloseRequested()) {
+			
 			if (Display.isVisible()) {
 				// check keyboard input
 				processKeyboard();
@@ -300,6 +300,7 @@ public class FullScreenWindowedTest {
 	/**
 	 * Test entry point
 	 */
+	/*
 	public static void main(String[] args) {
 		System.out.println("Change between fullscreen and windowed mode, by pressing F and W respectively");
 		System.out.println("Move quad using arrowkeys, and change rotation using +/-");
@@ -307,4 +308,5 @@ public class FullScreenWindowedTest {
 		fswTest.execute();
 		System.exit(0);
 	}
+	*/
 }
