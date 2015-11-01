@@ -83,7 +83,8 @@ public class Renderer2D {
 
 	private void switchMode() throws LWJGLException {
 		mode = findDisplayMode(800, 600, Display.getDisplayMode().getBitsPerPixel());
-		Display.setDisplayModeAndFullscreen(mode);
+		Display.setDisplayMode(mode);
+		//Display.setDisplayModeAndFullscreen(mode);
 	}
 
 	/**
