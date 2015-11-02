@@ -1,4 +1,4 @@
-package oolab.com.gamecore.balltest;
+package oolab.com.gamecore.background;
 
 import org.lwjgl.input.Keyboard;
 

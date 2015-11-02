@@ -14,8 +14,9 @@ import static org.lwjgl.util.glu.GLU.*;
 
 public class Renderer2D {
 	
-	ArrayList<GameObject> objs;
-	DisplayMode mode;
+	private ArrayList<GameObject> objs;
+	private DisplayMode mode;
+	private boolean _isRendering;
 	
 	public Renderer2D() throws LWJGLException {
 		objs = new ArrayList<GameObject>();
@@ -48,16 +49,33 @@ public class Renderer2D {
 	{
 		if(Display.isVisible())
 		{
+			_isRendering = true;
             glClear(GL_COLOR_BUFFER_BIT);
             for (GameObject obj : objs)
                     obj.Render(this);
             Display.update();
+            _isRendering = false;
 		}
 	}
 	
 	public DisplayMode getDisplayMode()
 	{
 		return mode;
+	}
+	
+	/***
+	 * Do not call this while rendering or matrix order will crash
+	 * @param x
+	 * @param y
+	 */
+	public void SetCamera(int x, int y)
+	{
+		assert !_isRendering;
+		// pop camera matrix
+		glPopMatrix();
+		// push new camera matrix
+		glPushMatrix();
+		glTranslatef(-x, -y, 0);
 	}
 
 	/**
@@ -86,7 +104,7 @@ public class Renderer2D {
 		Display.setDisplayMode(mode);
 		//Display.setDisplayModeAndFullscreen(mode);
 	}
-
+	
 	/**
 	 * Initializes OGL
 	 */
@@ -96,14 +114,22 @@ public class Renderer2D {
 		glEnable(GL_BLEND);
     	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		
-		
 		// Go into orthographic projection mode.
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluOrtho2D(0, mode.getWidth(), 0, mode.getHeight());
 		glMatrixMode(GL_MODELVIEW);
+
 		glLoadIdentity();
+		// default view port
 		glViewport(0, 0, mode.getWidth(), mode.getHeight());
+		
+		// push initial camera matrix
+		glPushMatrix();
+		glLoadIdentity();
+		//glTranslatef(0, 0, 0);
+
+		
 		//set clear color to black
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		//sync frame (only works on windows)

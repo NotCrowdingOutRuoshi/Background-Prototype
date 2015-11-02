@@ -1,6 +1,7 @@
-package oolab.com.gamecore.balltest;
+package oolab.com.gamecore.background;
 
 import oolab.com.gamecore.GameCore;
+import oolab.com.gamecore.balltest.Ball;
 
 public class TestMain {
 
@@ -8,10 +9,12 @@ public class TestMain {
 		System.out.println("Change between fullscreen and windowed mode, by pressing F and W respectively");
 		System.out.println("Move quad using arrowkeys, and change rotation using +/-");
 		GameCore core = new GameCore();
-		Ball ball = new Ball();
-		ball.Init(core);
+		Background bg = new Background();
+		bg.Init(core);
 		ExitCommand exitControl = new ExitCommand();
 		exitControl.Init(core);
+		Camera cam = new Camera();
+		cam.Init(core);
 		core.MainLoop();
 	}
 }
